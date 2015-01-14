@@ -450,10 +450,6 @@
             if (options.contentRange) {
                 options.headers['Content-Range'] = options.contentRange;
             }
-            if (!multipart || options.blob || !this._isInstanceOf('File', file)) {
-                options.headers['Content-Disposition'] = 'attachment; filename="' +
-                    encodeURI(file.name) + '"';
-            }
             if (!multipart) {
                 options.contentType = file.type || 'application/octet-stream';
                 options.data = options.blob || file;
